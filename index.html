@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لرنومتي 🌸</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#fff0f5; --bg2:#ffe1ec; --bg3:#f8d7ff;
+  --rose:#e75480; --rose-d:#c2185b; --rose-l:#ffb6c8;
+  --lav:#c9a7f5; --ink:#5a2340; --ink-soft:#8a4b6b;
+  --card:rgba(255,255,255,.82); --shadow:0 18px 50px -18px rgba(194,24,91,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{min-height:100%}
+html{background:linear-gradient(160deg,#fff0f5 0%,#ffe1ec 50%,#f8d7ff 100%)}
+body{
+  font-family:"Tajawal",system-ui,sans-serif; color:var(--ink);
+  background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%) fixed;
+  min-height:100vh; overflow-x:hidden;
+}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.petal{position:absolute;top:-40px;font-size:18px;opacity:.75;animation:fall linear infinite}
+@keyframes fall{
+  0%{transform:translateY(-40px) translateX(0) rotate(0)}
+  50%{transform:translateY(50vh) translateX(40px) rotate(180deg)}
+  100%{transform:translateY(105vh) translateX(-20px) rotate(360deg)}
+}
+main{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px 40px}
+.screen{width:100%;max-width:520px;animation:enter .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes enter{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.card{
+  background:var(--card); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:2px solid rgba(255,255,255,.9); border-radius:28px; box-shadow:var(--shadow);
+  padding:30px 22px; text-align:center; position:relative;
+}
+.card::before,.card::after{content:"🌸";position:absolute;font-size:28px}
+.card::before{top:-16px;right:-8px;transform:rotate(-15deg)}
+.card::after{bottom:-16px;left:-8px;transform:rotate(20deg)}
+h1,h2,.script{font-family:"Aref Ruqaa",serif}
+h1{font-size:44px;color:var(--rose-d);line-height:1.3;margin:10px 0 6px;text-shadow:0 2px 0 #fff}
+h2{font-size:28px;color:var(--rose-d);line-height:1.4;margin-bottom:14px}
+.sub{color:var(--ink-soft);font-size:17px;line-height:1.8}
+.btn{
+  font-family:inherit;font-weight:700;font-size:18px;border:0;cursor:pointer;
+  background:linear-gradient(135deg,#ff7aa2,var(--rose-d));color:#fff;
+  padding:14px 28px;border-radius:999px;margin-top:22px;
+  box-shadow:0 10px 24px -8px rgba(194,24,91,.6);transition:transform .15s;
+}
+.btn:active{transform:scale(.96)}
+.btn.soft{background:#fff;color:var(--rose-d);border:2px solid var(--rose-l);box-shadow:none}
+
+/* floral photo frame */
+.frame{position:relative;width:250px;height:250px;margin:16px auto 10px}
+.frame .ring{
+  position:absolute;inset:22px;border-radius:50%;
+  background:linear-gradient(135deg,#fff,#ffd6e2);padding:6px;
+  box-shadow:0 0 0 4px #fff, 0 12px 30px -10px rgba(194,24,91,.55);
+}
+.frame .photo{width:100%;height:100%;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#ffc2d4,#e3c6ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.frame .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .8s}
+.frame .fl{position:absolute;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(150,20,70,.25))}
+.frame.big{width:290px;height:290px}
+
+.rect-frame{position:relative;margin:18px auto 6px;max-width:330px;padding:14px}
+.rect-frame .pic{border-radius:22px;overflow:hidden;border:6px solid #fff;box-shadow:0 12px 30px -10px rgba(194,24,91,.5);background:linear-gradient(135deg,#ffc2d4,#e3c6ff);aspect-ratio:4/5}
+.rect-frame .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.rect-frame .fl{position:absolute;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(150,20,70,.25))}
+
+/* progress */
+.progress{display:flex;gap:6px;justify-content:center;margin-bottom:16px}
+.progress span{font-size:16px;filter:grayscale(1) opacity(.35);transition:.4s}
+.progress span.on{filter:none;transform:scale(1.15)}
+
+/* quiz */
+.qnum{display:inline-block;background:#ffe3ec;color:var(--rose-d);font-weight:700;border-radius:999px;padding:4px 14px;font-size:14px;margin-bottom:12px}
+.opts{display:grid;gap:10px;margin-top:18px}
+.opt{
+  font-family:inherit;font-size:17px;font-weight:500;color:var(--ink);
+  background:#fff;border:2px solid #ffd0de;border-radius:18px;padding:13px 16px;cursor:pointer;
+  transition:transform .15s, background .2s, border-color .2s;text-align:center;
+}
+.opt:active{transform:scale(.97)}
+.opt.wrong{background:#fff1f1;border-color:#ff9a9a;animation:shake .4s}
+.opt.right{background:#ffe3ef;border-color:var(--rose);color:var(--rose-d);font-weight:700}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.feedback{min-height:52px;margin-top:14px;font-size:16px;line-height:1.7;color:var(--rose-d);font-weight:700}
+
+/* letter */
+.letter{
+  text-align:right;font-size:18.5px;line-height:2.15;color:#4a1f36;
+  padding:6px 4px;
+}
+.letter p{margin:0 0 10px;padding-bottom:8px;border-bottom:1px dashed rgba(231,84,128,.18);opacity:0;animation:line .6s forwards}
+@keyframes line{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.part-title{font-family:"Aref Ruqaa",serif;font-size:26px;color:var(--rose-d);margin-bottom:6px}
+.sign{font-family:"Aref Ruqaa",serif;font-size:24px;color:var(--rose-d);text-align:left;margin-top:12px}
+
+/* hearts burst */
+.burst{position:fixed;pointer-events:none;z-index:50;font-size:22px;animation:burst 1.3s ease-out forwards}
+@keyframes burst{
+  0%{opacity:1;transform:translate(0,0) scale(.6)}
+  100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.3)}
+}
+.small-note{font-size:14px;color:var(--ink-soft);margin-top:12px}
+.song-btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+@media (max-width:380px){
+  h1{font-size:38px}.frame{width:220px;height:220px}.frame.big{width:250px;height:250px}
+  .letter{font-size:17.5px}
+}
+</style>
+</head>
+<body>
+<div id="petals"></div>
+<main id="app"></main>
+
+<script>
+/* ============ الإعدادات — غيّر هنا بس ============ */
+const CONFIG = {
+  // صور الصفحة الأولى (بتتقلب لوحدها) — pos = مكان الوش، zoom = تقريب
+  herPhotos: [
+    {src:"images/us-carpet.jpg",  pos:"47% 30%", zoom:1.9},
+    {src:"images/her-alex.jpg",   pos:"50% 40%", zoom:1.1},
+    {src:"images/her-flowers.jpg",pos:"64% 26%", zoom:1.6},
+    {src:"images/her-sparkle.jpg",pos:"50% 35%", zoom:1.2},
+    {src:"images/her-grad.jpg",   pos:"30% 20%", zoom:2.0},
+    {src:"images/her-nile.jpg",   pos:"48% 22%", zoom:2.4}
+  ],
+  // صورة مع كل جزء من الرسالة (8 أجزاء)
+  usPhotos: [
+    {src:"images/us-smile.jpg",   pos:"50% 30%"},
+    {src:"images/her-alex.jpg",   pos:"50% 50%"},
+    {src:"images/her-flowers.jpg",pos:"50% 40%"},
+    {src:"images/her-nile.jpg",   pos:"50% 50%"},
+    {src:"images/us-ski1.jpg",    pos:"50% 55%"},
+    {src:"images/us-ski2.jpg",    pos:"50% 65%"},
+    {src:"images/us-walk.jpg",    pos:"50% 60%"},
+    {src:"images/her-sparkle.jpg",pos:"50% 30%"}
+  ],
+  endPhoto: {src:"images/us-carpet.jpg", pos:"47% 30%", zoom:1.9},
+  // لينك الأغنية
+  songUrl: "https://www.youtube.com/watch?v=zUYdZvWRwnQ"
+};
+
+/* ============ الأسئلة ============ */
+const QUESTIONS = [
+  { q:"اتقابلنا أول مرة فين؟",
+    opts:["جولدز جيم","ستاربكس","في المترو","في حلمك يا كابتن 😂"], a:0,
+    wrong:"إزاي تنسي الريسبشن اللي اتسرق منه قلبي؟ 😤",
+    right:"أيوه يا ستي، هناك بالظبط اتخطفت 🥹" },
+  { q:"أول ما كلمتك، كانت حجتي إيه؟",
+    opts:["موضوع الورق","عايز اشتراك","بسأل على الواي فاي","كنت تايه"], a:0,
+    wrong:"لا يا هانم، أنا كنت عامل نفسي جد ومحترم 😂",
+    right:"حجة ورق… والقلب هو اللي كان بيمضي 😌" },
+  { q:"الأوردر المثالي بتاع رنومتي؟",
+    opts:["آيس سبانش لاتيه + كرواسون جبنة رومي","شاي بلبن","قهوة سادة","فول وحيد 😂"], a:0,
+    wrong:"ده انتي نسيتي نفسك خالص 😂 فكري تاني",
+    right:"وأنا مستني أعزمك عليه بنفسي ☕🥐" },
+  { q:"الأكلة اللي جابتلي سخونية؟",
+    opts:["الكوارع","المحشي","البيتزا اللي عملناها","أكلك انتي 😅"], a:0,
+    wrong:"لا لا، دي بريئة 😂 في أكلة تانية خانتني",
+    right:"الكوارع… أكتر خيانة في حياتي 🤒😂" },
+  { q:"بتنادي عليا إزاي لما تكوني عايزاني؟",
+    opts:["أحمممممد","يا كابتن","يا أستاذ أحمد","يا ابن الناس"], a:0,
+    wrong:"ده مش صوتك خالص 😂 افتكري المدّ",
+    right:"أحمممممد… ودي أحلى نغمة في ودني 🎶" },
+  { q:"أقولك إيه بالعراقي يخليكي تضحكي؟",
+    opts:["اشلونچ حبيبتي","يا الوردة","الاتنين 🌹"], a:2,
+    wrong:"قريبة… بس في إجابة أحلى 😏",
+    right:"اشلونچ يا الوردة 🌹" },
+  { q:"اتخطبنا يوم كام؟",
+    opts:["25 فبراير 2025","14 فبراير 2025","10 مايو 2025","مش فاكرة والله 😂"], a:0,
+    wrong:"ده يوم مينفعش يتنسي يا رنومتي 😤😂",
+    right:"أحلى يوم في سنة 2025 💍" },
+  { q:"إمتى حسيت إن قلبك اتعلق بيا بجد؟",
+    opts:["في المستشفى بعد الحادثة","من أول نظرة في الجيم","لسه مش متأكدة 😅","كل يوم شوية"], a:-1,
+    right:"وأنا عمري ما هنسى إنك كنتي جنبي في المستشفى 🤍 ساعتها عرفت إن مفيش غيرك" }
+];
+
+/* ============ الرسالة (8 أجزاء) ============ */
+const LETTER = [
+  { t:"البداية", l:[
+    "رنيم يا حبيبتي يا بنت قلبي",
+    "مش عارف ابدا كلامي منين بس محتاج اتكلم معاكي من قلبي من غير خناق ولا عتاب ولا مين غلطان ومين صح",
+    "بقالي كتير مكتبتلكيش زي زمان ويمكن بقينا بنتكلم كتير بس مبقيناش بنسمع بعض وبقينا نعرف نوجع بعض اكتر ما نعرف نطبطب على بعض",
+    "انا مش بكتبلك عشان اقنعك ان كل حاجة كويسة واحنا الاتنين عارفين انها مش كويسة",
+    "بكتبلك عشان انتي لسه نفس البنت اللي قلبي اختارها واللي لما بفكر في مستقبلي بلاقيها في كل تفاصيله"]},
+  { t:"قريت كلامك", l:[
+    "قريت كلامك يا رنيم وقريته بقلبي قبل عيني",
+    "في كلام وجعني بس وسط وجعي حاولت اشوف وجعك انتي",
+    "بنت عندها 22 سنة كانت بتحلم تعيش احلى ايام عمرها مع اللي اختارته ولقت نفسها بتنام زعلانة وبتسال نفسها هي ليه مش مبسوطة",
+    "واكتر حاجة وجعتني مش انك قولتي يمكن اخترتي غلط",
+    "اكتر حاجة وجعتني انك بقيتي تلومي نفسك على قلبك الحلو اللي حبيتيني بيه",
+    "انا كنت عايز ابقى الشخص اللي لما الدنيا تتعبك ترجعيله تلاقي راحة مش تعب زيادة",
+    "وكنت عايز لما حد يسالك عن خطوبتك تضحكي من قلبك مش تسكتي"]},
+  { t:"اعتذاري", l:[
+    "وعشان كده عايز اعتذرلك بجد مش اعتذار عام",
+    "انا اسف على يوم عيد ميلادك لما اتعصبت عليكي وزعقت ونكدت عليكي في يوم كان المفروض يبقى يومك انتي",
+    "اسف على كل مرة صوتي علي وانا بكلمك بدل ما اهدى واسمعك",
+    "اسف على الاوقات اللي علقت فيها على حاجة بطريقة خلتك تحسي اني بتحكم فيكي او بشكك فيكي بدل ما اتكلم بهدوء وحب",
+    "واسف اني كنت فاكر ان تعبي وشغلي كفاية يوصلولك حبي واستنيت منك تفهميني من غير ما اشرح",
+    "الحب مش بس شغل وتجهيزات الحب كلمة حلوة في وقتها واهتمام من غير ما تطلبيه واحتواء وقت الزعل",
+    "وانا محتاج اتعلم اوصلك حبي بالطريقة اللي انتي محتاجاها"]},
+  { t:"الغربة", l:[
+    "انا مش بعيد عنك عشان اخترت البعد انا هنا بحاول ابني بيت لينا",
+    "والغربة صعبة عليا انا كمان في ايام برجع مرهق ومحتاج حضنك وبحس اني لوحدي وسط ناس كتير",
+    "بس مش بقولك ده عشان اقارن تعبي بتعبك",
+    "حقك تزعلي لما تشوفي اتنين مخطوبين عايشين تفاصيل انتي نفسك فيها",
+    "وحقك تتعبي من الغربة حتى لو وافقتي عليها من الاول وموافقتك عليا عمرها ما هتبقى حجة استخدمها ضدك",
+    "احنا الاتنين بنحاول نوصل لنفس المكان",
+    "انتي مش عدوتي يا رنيم وانا مش عدوك"]},
+  { t:"سبتمبر", l:[
+    "لما نزلت في سبتمبر مكنتش عايزك تحسي انك مديونة ليا بحاجة",
+    "كنت بس مشتاق اشوف وشك قدامي بدل الشاشة واسمع ضحكتك واحنا ماشيين سوا",
+    "ويمكن غلطت لما افتكرت ان الايام الحلوة لوحدها تنسينا اللي وجعنا لان فيه حاجات جوانا محتاجة تتعالج بجد مش تتغطى بخروجة او هدية",
+    "بس مش عايز ذكرياتنا الحلوة تموت وسط كل اللي حصل",
+    "ومش عايز لما نفتكر بدايتنا نفتكر الخناق بس"]},
+  { t:"مش مسابقة", l:[
+    "انا مش داخل معاكي مسابقة مين اتوجع اكتر",
+    "وجعك حقيقي ووجعي حقيقي واللي محتاجينه مش ان واحد يكسب والتاني يخسر",
+    "محتاجين نفهم احنا بنوجع بعض ليه وازاي نبطل",
+    "نسمع بعض بجد وناخد وقت نهدا قبل ما نقول كلام هيفضل يوجعنا",
+    "وكل واحد يقول هو محتاج ايه بدل ما نستنى بعض نفهم لوحدنا",
+    "ولو احتجنا حد حكيم ومحايد يساعدنا مفيش فيها عيب",
+    "مش هديكي وعود كبيرة بس اقدر اوعدك اني اخلي كلامي احن وانصتلك اكتر ومتعاملش مع زعلك على انه نكد"]},
+  { t:"بيتنا", l:[
+    "ساعات بفكر في اول يوم هرجع فيه من الشغل والاقيكي في بيتنا",
+    "في اننا نحكي لبعض يومنا واحنا جنب بعض وفي الايام العادية اللي هي بالنسبالي الحياة اللي نفسي فيها",
+    "بس فهمت ان البيت مش هيبقى حلو لمجرد اننا تحت سقف واحد وان الجواز مش هيمسح خلافاتنا",
+    "وانا مش عايزك تكملي عشان الفرح قرب ولا عشان تثبتي لحد ان اختيارك كان صح",
+    "انا عايزك تختاري اللي يريحك انتي وتكوني مطمنة لاختيارك",
+    "وايا كان اللي هتحسيه هحترمه"]},
+  { t:"وحشتيني", l:[
+    "يا رنومتي وحشتيني",
+    "وحشتني ضحكتك اللي بتضحكني حتى لو يومي كان صعب",
+    "وحشني احساس اننا اصحاب وحبايب قبل ما نكون مخطوبين",
+    "وحشني اني احكيلك حاجة حصلتلي واول واحدة افكر فيها تكوني انتي",
+    "وعايزك تعرفي انك مش غبية عشان حبيتي ووثقتي ومتكرهيش النسخة اللي كانت بتحبني من قلبها",
+    "انا حبيتك بجد ولسه بحبك بجد",
+    "مش مستني منك رد ولا مستني تسامحيني دلوقتي",
+    "انا بس نفسي تقري كلامي وانتي هادية وتعرفي ان فيه حد على الناحية التانية بيحبك وعايزك سعيدة",
+    "وخدي وقتك كله",
+    "ربنا يصلح ما بين قلوبنا ويكتبلنا الخير",
+    "بحبك يا رنومتي ❤️"]}
+];
+
+/* ============ الورد ============ */
+const PALETTES = [
+  ["#ff8fab","#fb6f92","#ffc2d1"],["#f4acb7","#e5989b","#ffe5ec"],
+  ["#cdb4db","#b185db","#efe1ff"],["#ffafcc","#ff85a1","#fff0f5"],
+  ["#ffd6a5","#f7b267","#fff3e0"],["#ffffff","#ffd1dc","#fff7fa"]
+];
+function flowerSVG(size, pal, rot){
+  const [a,b,c]=pal, n=5+Math.round(Math.random()), petals=[];
+  for(let i=0;i<n;i++){
+    const ang=360/n*i;
+    petals.push(`<ellipse cx="50" cy="28" rx="17" ry="24" fill="${a}" stroke="${b}" stroke-width="1.5" transform="rotate(${ang} 50 50)"/>`);
+  }
+  const inner=[];
+  for(let i=0;i<n;i++){
+    const ang=360/n*i+36;
+    inner.push(`<ellipse cx="50" cy="36" rx="10" ry="15" fill="${c}" opacity=".9" transform="rotate(${ang} 50 50)"/>`);
+  }
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" style="transform:rotate(${rot}deg)">
+    <path d="M50 50 Q20 70 8 92 Q30 82 50 50Z" fill="#9ccc9c" opacity=".9"/>
+    <path d="M50 50 Q82 68 94 90 Q70 84 50 50Z" fill="#81b981" opacity=".9"/>
+    ${petals.join("")}${inner.join("")}
+    <circle cx="50" cy="50" r="9" fill="${b}"/><circle cx="50" cy="50" r="4.5" fill="#fff59d"/>
+  </svg>`;
+}
+function wreath(el, count){
+  const w=el.clientWidth, r=w/2-14, cx=w/2;
+  for(let i=0;i<count;i++){
+    const ang=(i/count)*Math.PI*2 + (Math.random()*.15);
+    const size=(i%3===0? 46:34)+Math.random()*10;
+    const x=cx+r*Math.cos(ang)-size/2, y=cx+r*Math.sin(ang)-size/2;
+    const d=document.createElement("div");
+    d.className="fl"; d.style.left=x+"px"; d.style.top=y+"px";
+    d.innerHTML=flowerSVG(size, PALETTES[i%PALETTES.length], Math.random()*360);
+    el.appendChild(d);
+  }
+}
+function cornerFlowers(el){
+  const spots=[[-10,-10,62],[30,-18,40],[-18,40,40],["r",-10,58],["r",-16,36,40],["b",-10,60],["b",40,38],["rb",-8,56],["rb",-16,36,44]];
+  spots.forEach((s,i)=>{
+    const d=document.createElement("div"); d.className="fl";
+    const size=s[2]||44;
+    if(s[0]==="r"){d.style.right=s[1]+"px";d.style.top=(s[3]||-10)+"px";}
+    else if(s[0]==="b"){d.style.left=s[1]+"px";d.style.bottom=(-10)+"px";}
+    else if(s[0]==="rb"){d.style.right=s[1]+"px";d.style.bottom=(s[3]||-10)+"px";}
+    else{d.style.left=s[0]+"px";d.style.top=s[1]+"px";}
+    d.innerHTML=flowerSVG(size, PALETTES[i%PALETTES.length], Math.random()*360);
+    el.appendChild(d);
+  });
+}
+
+/* ============ مساعدات ============ */
+const app=document.getElementById("app");
+function imgTag(ph, alt){
+  if(!ph) return "";
+  const z=ph.zoom||1, pos=ph.pos||"50% 50%";
+  return `<img src="${ph.src}" alt="${alt||""}" style="object-position:${pos};transform:scale(${z});transform-origin:${pos}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'🌸'}))">`;
+}
+function hearts(x,y,n=16){
+  const set=["❤️","💕","💖","🌸","💗"];
+  for(let i=0;i<n;i++){
+    const h=document.createElement("div"); h.className="burst";
+    h.textContent=set[i%set.length];
+    h.style.left=x+"px"; h.style.top=y+"px";
+    const a=Math.random()*Math.PI*2, d=80+Math.random()*120;
+    h.style.setProperty("--x",Math.cos(a)*d+"px"); h.style.setProperty("--y",Math.sin(a)*d-60+"px");
+    document.body.appendChild(h); setTimeout(()=>h.remove(),1400);
+  }
+}
+function progress(step){
+  let s='<div class="progress">';
+  for(let i=0;i<QUESTIONS.length;i++) s+=`<span class="${i<step?'on':''}">❤️</span>`;
+  return s+'</div>';
+}
+function shuffle(arr){return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1])}
+function scrollTop(){window.scrollTo({top:0,behavior:"smooth"})}
+
+/* ============ الشاشات ============ */
+let slideTimer=null;
+function welcome(){
+  app.innerHTML=`<section class="screen"><div class="card">
+    <div class="frame big" id="fr"><div class="ring"><div class="photo" id="ph">${imgTag(CONFIG.herPhotos[0],"رنيم")}</div></div></div>
+    <h1>رنومتي 🌷</h1>
+    <p class="sub">عملتلك حاجة صغيرة من قلبي<br>بس عشان تعدّي كل صفحة لازم تجاوبي على سؤال 😏<br>الأسئلة دي محدش يعرف إجابتها غيرنا</p>
+    <button class="btn" id="go">يلا نبدأ 💌</button>
+  </div></section>`;
+  wreath(document.getElementById("fr"),14);
+  // سلايد شو لصورها
+  let i=0; clearInterval(slideTimer);
+  if(CONFIG.herPhotos.length>1){
+    slideTimer=setInterval(()=>{
+      const img=document.querySelector("#ph img"); if(!img) return;
+      i=(i+1)%CONFIG.herPhotos.length;
+      img.style.opacity=0;
+      setTimeout(()=>{const ph=CONFIG.herPhotos[i]; img.src=ph.src; img.style.objectPosition=ph.pos; img.style.transformOrigin=ph.pos; img.style.transform=`scale(${ph.zoom||1})`; img.style.opacity=1;},600);
+    },3500);
+  }
+  document.getElementById("go").onclick=(e)=>{hearts(e.clientX,e.clientY); clearInterval(slideTimer); setTimeout(()=>question(0),350);};
+}
+
+function question(k){
+  scrollTop();
+  const Q=QUESTIONS[k];
+  const order=shuffle(Q.opts.map((t,i)=>({t,i})));
+  app.innerHTML=`<section class="screen"><div class="card">
+    ${progress(k)}
+    <span class="qnum">سؤال ${k+1} من ${QUESTIONS.length}</span>
+    <h2>${Q.q}</h2>
+    <div class="opts">${order.map(o=>`<button class="opt" data-i="${o.i}">${o.t}</button>`).join("")}</div>
+    <div class="feedback" id="fb"></div>
+  </div></section>`;
+  const fb=document.getElementById("fb");
+  let done=false;
+  app.querySelectorAll(".opt").forEach(b=>b.onclick=(e)=>{
+    if(done) return;
+    const i=+b.dataset.i;
+    if(Q.a===-1 || i===Q.a){
+      done=true; b.classList.add("right"); fb.textContent=Q.right;
+      hearts(e.clientX,e.clientY,20);
+      setTimeout(()=>letter(k),1800);
+    }else{
+      b.classList.remove("wrong"); void b.offsetWidth; b.classList.add("wrong");
+      fb.textContent=Q.wrong;
+    }
+  });
+}
+
+function letter(k){
+  scrollTop();
+  const P=LETTER[k], photo=CONFIG.usPhotos[k];
+  const lines=P.l.map((t,i)=>`<p style="animation-delay:${.15+i*.35}s">${t}</p>`).join("");
+  const last=k===LETTER.length-1;
+  app.innerHTML=`<section class="screen"><div class="card">
+    ${progress(k+1)}
+    <div class="part-title">${P.t}</div>
+    ${photo?`<div class="rect-frame" id="rf"><div class="pic">${imgTag(photo,"احنا")}</div></div>`:""}
+    <div class="letter">${lines}</div>
+    ${last?`<div class="sign">أحمد 🤍</div>`:""}
+    <button class="btn" id="next">${last?"في حاجة أخيرة 🎵":"كمّلي 💗"}</button>
+  </div></section>`;
+  const rf=document.getElementById("rf"); if(rf) cornerFlowers(rf);
+  document.getElementById("next").onclick=(e)=>{hearts(e.clientX,e.clientY); setTimeout(()=> last? ending(): question(k+1),300);};
+}
+
+function ending(){
+  scrollTop();
+  app.innerHTML=`<section class="screen"><div class="card">
+    <div class="frame" id="fr2"><div class="ring"><div class="photo">${imgTag(CONFIG.endPhoto,"احنا")}</div></div></div>
+    <h2>في أغنية عايزك تسمعيها 🎵</h2>
+    <p class="sub">كل كلمة فيها نفسي أقولهالك<br><span class="script" style="font-size:24px;color:var(--rose-d)">بحبك… وحشتيني</span></p>
+    <a class="btn song-btn" href="${CONFIG.songUrl}" target="_blank" rel="noopener">▶ اسمعيها</a>
+    <p class="small-note">مش مستنيك تردي دلوقتي… أنا بس عايزك تعرفي إني هنا 🤍</p>
+    <button class="btn soft" id="again">اقري تاني من الأول</button>
+  </div></section>`;
+  wreath(document.getElementById("fr2"),12);
+  const r=document.querySelector(".card").getBoundingClientRect();
+  hearts(r.left+r.width/2, r.top+120, 26);
+  document.getElementById("again").onclick=welcome;
+}
+
+/* ============ ورد بيقع ============ */
+(function(){
+  const box=document.getElementById("petals"), set=["🌸","🌷","💮","🤍","🌸"];
+  for(let i=0;i<18;i++){
+    const p=document.createElement("div"); p.className="petal";
+    p.textContent=set[i%set.length];
+    p.style.left=Math.random()*100+"vw";
+    p.style.fontSize=(12+Math.random()*14)+"px";
+    p.style.animationDuration=(9+Math.random()*10)+"s";
+    p.style.animationDelay=(-Math.random()*15)+"s";
+    box.appendChild(p);
+  }
+})();
+
+[...CONFIG.herPhotos,...CONFIG.usPhotos].forEach(p=>{const i=new Image();i.src=p.src});
+welcome();
+</script>
+</body>
+</html>
